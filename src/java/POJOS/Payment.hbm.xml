@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 28, 2019 10:29:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Payment" table="payment" catalog="shoppingsite" optimistic-lock="version">
+        <id name="paymentId" type="java.lang.Integer">
+            <column name="payment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orderMaster" class="POJOS.OrderMaster" fetch="select">
+            <column name="order_id" />
+        </many-to-one>
+        <many-to-one name="userMaster" class="POJOS.UserMaster" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="paymentStatus" type="java.lang.Byte">
+            <column name="payment_status" />
+        </property>
+        <property name="paymentMode" type="string">
+            <column name="payment_mode" length="3" />
+        </property>
+    </class>
+</hibernate-mapping>

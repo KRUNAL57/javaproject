@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 28, 2019 10:29:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Orders" table="orders" catalog="shoppingsite" optimistic-lock="version">
+        <composite-id name="id" class="POJOS.OrdersId">
+            <key-property name="orderId" type="java.lang.Integer">
+                <column name="order_id" />
+            </key-property>
+            <key-property name="productId" type="java.lang.Integer">
+                <column name="product_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="orderMaster" class="POJOS.OrderMaster" update="false" insert="false" fetch="select">
+            <column name="order_id" />
+        </many-to-one>
+        <many-to-one name="productMaster" class="POJOS.ProductMaster" update="false" insert="false" fetch="select">
+            <column name="product_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 28, 2019 10:29:30 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.OrderMaster" table="order_master" catalog="shoppingsite" optimistic-lock="version">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="order_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userMaster" class="POJOS.UserMaster" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="address" type="string">
+            <column name="address" length="65535" />
+        </property>
+        <property name="orderDate" type="date">
+            <column name="order_date" length="10" />
+        </property>
+        <property name="totalPrice" type="java.lang.Float">
+            <column name="total_price" precision="12" scale="0" />
+        </property>
+        <set name="orderses" table="orders" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_id" />
+            </key>
+            <one-to-many class="POJOS.Orders" />
+        </set>
+        <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="order_id" />
+            </key>
+            <one-to-many class="POJOS.Payment" />
+        </set>
+    </class>
+</hibernate-mapping>
