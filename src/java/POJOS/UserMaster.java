@@ -32,8 +32,9 @@ public class UserMaster  implements java.io.Serializable {
     public UserMaster() {
     }
 
-    public UserMaster(String email, String name, String address, Long contact, Byte category, Set orderMasters, Set payments) {
+    public UserMaster(String email,String password, String name, String address, Long contact, Byte category, Set orderMasters, Set payments) {
        this.email = email;
+       this.password = password;
        this.name = name;
        this.address = address;
        this.contact = contact;
