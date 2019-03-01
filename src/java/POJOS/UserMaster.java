@@ -1,5 +1,5 @@
 package POJOS;
-// Generated Feb 28, 2019 10:29:30 AM by Hibernate Tools 4.3.1
+// Generated Mar 1, 2019 10:06:39 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class UserMaster  implements java.io.Serializable {
 
      private Integer userId;
      private String email;
+     private String password;
      private String name;
      private String address;
      private Long contact;
@@ -23,7 +24,11 @@ public class UserMaster  implements java.io.Serializable {
     public UserMaster() {
     }
 
-    public UserMaster(String email,String password, String name, String address, Long contact, Byte category, Set orderMasters, Set payments) {
+	
+    public UserMaster(String password) {
+        this.password = password;
+    }
+    public UserMaster(String email, String password, String name, String address, Long contact, Byte category, Set orderMasters, Set payments) {
        this.email = email;
        this.password = password;
        this.name = name;
@@ -47,6 +52,13 @@ public class UserMaster  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     public String getName() {
         return this.name;

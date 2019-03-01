@@ -19,7 +19,7 @@ public class UserDAO {
         Transaction t=session.beginTransaction();
         session.save(e);
         t.commit();
-        session.close();
+       session.close();
     }
     
 }

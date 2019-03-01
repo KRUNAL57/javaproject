@@ -186,53 +186,58 @@
 		</nav>
 		<!-- /NAVIGATION -->
 
-		
-                <div class="section">
-                <div class="container">
-				<!-- row -->
-		<div class="row">
-
-			<div class="col-md-7">
-                            <form action="/ShoppingSite/SubmitUser" method="post">
-                        <div class="form-group">
-                            <input class="input" type="email" name="email" placeholder="Email">
-			</div>
-                        <div class="form-group">
-                            <input class="input" type="password" name="password" placeholder="Password">
-			</div>
-                        <div class="form-group">
-                            <input class="input" type="password" name="cnfpassword" placeholder="Confirm Password">
-			</div>
-                        <div class="form-group">
-                            <input class="input" type="text" name="name" placeholder="Name">
-			</div>
-                        <div class="form-group">
-                            <input class="input" type="number" name="contact" placeholder="Contact Number">
-			</div>
-                        <div class="form-group">
-                            <input class="input" type="text" name="address" placeholder="Address">
-			</div>                        
-                        <div class="form-group">
-                            <button type="submit" class="primary-btn order-submit">Create Account</button>
-			</div>
-                       
-                    </form>
-                </div>
-                                </div>
-                </div>
-                </div>
-		<!-- SECTION -->
-		<div class="section">
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">Regular Page</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">Home</a></li>
+							<li class="active">Blank</li>
+						</ul>
+					</div>
 				</div>
 				<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>
-		<!-- /SECTION -->
+		<!-- /BREADCRUMB -->
+
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-7">
+						<!-- Billing Details -->
+                                                <form action="/shoppingsite/submit_user">
+							<div class="form-group">
+								<input class="input" type="text" name="name" placeholder="Name">
+							</div>
+							<div class="form-group">
+								<input class="input" type="email" name="email" placeholder="Email">
+							</div>
+                                                    	<div class="form-group">
+								<input class="input" type="password" name="password" placeholder="Password">
+							</div>
+							<div class="form-group">
+								<input class="input" type="number" name="contact" placeholder="Contact Number">
+							</div>
+							<div class="form-group">
+								<input class="input" type="text" name="address" placeholder="Address">
+							</div>
+							<div class="form-group">
+                                                            <button type="submit" class="primary-btn order-submit">Create Account</button>
+							</div>
+                                                </form>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
 
 		<!-- NEWSLETTER -->
 		<div id="newsletter" class="section">
