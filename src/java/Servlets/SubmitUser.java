@@ -5,19 +5,21 @@
  */
 package Servlets;
 
-import POJOS.UserMaster;
 import DAO.UserDAO;
+import POJOS.UserMaster;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author Student
  */
+@WebServlet(name = "SubmitUser", urlPatterns = {"/SubmitUser"})
 public class SubmitUser extends HttpServlet {
 
     /**
@@ -41,6 +43,7 @@ public class SubmitUser extends HttpServlet {
             String address = request.getParameter("address");   
             UserMaster um = new UserMaster(email, password, name, address, Long.parseLong(contact), Byte.parseByte(String.valueOf(0).toString()), null, null);
             UserDAO.createUser(um);
+         
         }
     }
 
