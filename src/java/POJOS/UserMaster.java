@@ -13,21 +13,12 @@ public class UserMaster  implements java.io.Serializable {
 
      private Integer userId;
      private String email;
-    private String password;
      private String name;
      private String address;
      private Long contact;
      private Byte category;
      private Set orderMasters = new HashSet(0);
      private Set payments = new HashSet(0);
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-     
 
     public UserMaster() {
     }
