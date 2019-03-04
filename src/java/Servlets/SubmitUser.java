@@ -41,9 +41,9 @@ public class SubmitUser extends HttpServlet {
             String name = request.getParameter("name");
             String contact = request.getParameter("contact");
             String address = request.getParameter("address");   
-            UserMaster um = new UserMaster(email, password, name, address, Long.parseLong(contact), Byte.parseByte(String.valueOf(0).toString()), null, null);
+            UserMaster um = new UserMaster(email, name, address, Long.parseLong(contact), Byte.parseByte(String.valueOf(0).toString()), password,null, null);
             UserDAO.createUser(um);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("user_register.jsp?register=1");
         }
     }
 

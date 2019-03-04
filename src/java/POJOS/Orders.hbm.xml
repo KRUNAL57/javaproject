@@ -1,21 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 1, 2019 10:06:40 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4 Mar, 2019 9:25:24 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="POJOS.Orders" table="orders" catalog="shoppingsite" optimistic-lock="version">
-        <composite-id name="id" class="POJOS.OrdersId">
-            <key-property name="orderId" type="java.lang.Integer">
-                <column name="order_id" />
-            </key-property>
-            <key-property name="productId" type="java.lang.Integer">
-                <column name="product_id" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="orderMaster" class="POJOS.OrderMaster" update="false" insert="false" fetch="select">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="orderMaster" class="POJOS.OrderMaster" fetch="select">
             <column name="order_id" />
         </many-to-one>
-        <many-to-one name="productMaster" class="POJOS.ProductMaster" update="false" insert="false" fetch="select">
+        <many-to-one name="productMaster" class="POJOS.ProductMaster" fetch="select">
             <column name="product_id" />
         </many-to-one>
     </class>

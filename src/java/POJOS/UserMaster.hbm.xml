@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 1, 2019 10:06:40 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 4 Mar, 2019 9:25:24 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="POJOS.UserMaster" table="user_master" catalog="shoppingsite" optimistic-lock="version">
         <id name="userId" type="java.lang.Integer">
@@ -10,9 +10,6 @@
         </id>
         <property name="email" type="string">
             <column name="email" length="60" />
-        </property>
-        <property name="password" type="string">
-            <column name="password" length="16" not-null="true" />
         </property>
         <property name="name" type="string">
             <column name="name" length="60" />
@@ -25,6 +22,9 @@
         </property>
         <property name="category" type="java.lang.Byte">
             <column name="category" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="16" not-null="true" />
         </property>
         <set name="orderMasters" table="order_master" inverse="true" lazy="true" fetch="select">
             <key>

@@ -1,5 +1,5 @@
 package POJOS;
-// Generated Mar 1, 2019 10:06:39 AM by Hibernate Tools 4.3.1
+// Generated 4 Mar, 2019 9:25:23 PM by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package POJOS;
 public class Payment  implements java.io.Serializable {
 
 
-     private Integer paymentId;
+     private Integer id;
      private OrderMaster orderMaster;
      private UserMaster userMaster;
      private Byte paymentStatus;
@@ -25,12 +25,12 @@ public class Payment  implements java.io.Serializable {
        this.paymentMode = paymentMode;
     }
    
-    public Integer getPaymentId() {
-        return this.paymentId;
+    public Integer getId() {
+        return this.id;
     }
     
-    public void setPaymentId(Integer paymentId) {
-        this.paymentId = paymentId;
+    public void setId(Integer id) {
+        this.id = id;
     }
     public OrderMaster getOrderMaster() {
         return this.orderMaster;

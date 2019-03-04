@@ -1,5 +1,5 @@
 package POJOS;
-// Generated Mar 1, 2019 10:06:39 AM by Hibernate Tools 4.3.1
+// Generated 4 Mar, 2019 9:25:23 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,11 +13,11 @@ public class UserMaster  implements java.io.Serializable {
 
      private Integer userId;
      private String email;
-     private String password;
      private String name;
      private String address;
      private Long contact;
      private Byte category;
+     private String password;
      private Set orderMasters = new HashSet(0);
      private Set payments = new HashSet(0);
 
@@ -28,13 +28,13 @@ public class UserMaster  implements java.io.Serializable {
     public UserMaster(String password) {
         this.password = password;
     }
-    public UserMaster(String email, String password, String name, String address, Long contact, Byte category, Set orderMasters, Set payments) {
+    public UserMaster(String email, String name, String address, Long contact, Byte category, String password, Set orderMasters, Set payments) {
        this.email = email;
-       this.password = password;
        this.name = name;
        this.address = address;
        this.contact = contact;
        this.category = category;
+       this.password = password;
        this.orderMasters = orderMasters;
        this.payments = payments;
     }
@@ -52,13 +52,6 @@ public class UserMaster  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
-    }
-    public String getPassword() {
-        return this.password;
-    }
-    
-    public void setPassword(String password) {
-        this.password = password;
     }
     public String getName() {
         return this.name;
@@ -87,6 +80,13 @@ public class UserMaster  implements java.io.Serializable {
     
     public void setCategory(Byte category) {
         this.category = category;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     public Set getOrderMasters() {
         return this.orderMasters;
