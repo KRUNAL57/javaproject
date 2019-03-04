@@ -6,11 +6,11 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/shoppingsite?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <mapping resource="POJOS/UserMaster.hbm.xml"/>
+    <mapping resource="POJOS/Cart.hbm.xml"/>
+    <mapping resource="POJOS/OrderMaster.hbm.xml"/>
     <mapping resource="POJOS/ProductMaster.hbm.xml"/>
     <mapping resource="POJOS/Payment.hbm.xml"/>
     <mapping resource="POJOS/Orders.hbm.xml"/>
-    <mapping resource="POJOS/UserMaster.hbm.xml"/>
-    <mapping resource="POJOS/OrderMaster.hbm.xml"/>
-    <mapping resource="POJOS/Cart.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

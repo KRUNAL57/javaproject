@@ -27,7 +27,19 @@
 
 					<div class="col-md-7">
 						<!-- Billing Details -->
-                                <form action="SubmitUser">
+                                                         <%
+                                                
+                                                String register = request.getParameter("register");
+                                                if(register!=null){
+                                                    if(register.equals("1")){
+                                                        out.print("<span style='color:green;font-weight:bold;'>Registration Successfull!</span>");
+                                                    }                                                    
+                                                }
+
+                                                
+                                                
+                                            %>
+                                                <form action="SubmitUser">
 
                                                 
 
