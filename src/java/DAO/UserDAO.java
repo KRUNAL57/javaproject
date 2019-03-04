@@ -24,14 +24,16 @@ public class UserDAO {
        session.close();
     }
     public static UserMaster loginuser(String username,String password){
-        String hql = "from UserMaster where username='"+username+"' and password='"+password+"'";
+        String hql = "from UserMaster where email='"+username+"' and password='"+password+"'";
         session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery(hql);
         List<UserMaster> users = query.list();
         session.close();
         UserMaster obj=null;
-        if(!users.isEmpty())
+        if(!users.isEmpty()){
             obj = users.get(0);
+        }
+            
          return obj;
     }
 }

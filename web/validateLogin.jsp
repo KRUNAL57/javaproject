@@ -12,6 +12,9 @@
     String password = request.getParameter("password");
     UserMaster e = UserDAO.loginuser(username, password);
     if(e!=null){
+        session.setAttribute("userObject",e);
         response.sendRedirect("index.jsp");
+    }else{
+        response.sendRedirect("login.jsp?check=0");
     }
 %>

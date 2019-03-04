@@ -43,7 +43,7 @@ public class SubmitUser extends HttpServlet {
             String address = request.getParameter("address");   
             UserMaster um = new UserMaster(email, password, name, address, Long.parseLong(contact), Byte.parseByte(String.valueOf(0).toString()), null, null);
             UserDAO.createUser(um);
-         
+            response.sendRedirect("index.jsp");
         }
     }
 
