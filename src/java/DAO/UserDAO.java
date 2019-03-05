@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package DAO;
+import POJOS.Cart;
 import POJOS.UserMaster;
 import java.util.List;
 import org.hibernate.Query;
@@ -21,7 +22,7 @@ public class UserDAO {
         Transaction t=session.beginTransaction();
         session.save(e);
         t.commit();
-       session.close();
+       
     }
     public static UserMaster loginuser(String username,String password){
         String hql = "from UserMaster where email='"+username+"' and password='"+password+"'";
