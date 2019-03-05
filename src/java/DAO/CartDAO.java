@@ -33,5 +33,11 @@ public class CartDAO {
             
             return users;
         }
+    public static List<Object> generateTotal(String sessionId){
+        String sql = "SELECT sum(quantity) as total_amount FROM cart inner join product_master WHERE cart.product_id=product_master.product_id and cart.session_id='"+sessionId+"'";
+        Query q = session.createSQLQuery(sql);
+        List<Object> e = q.list();
+        return e;
+    }
     
 }

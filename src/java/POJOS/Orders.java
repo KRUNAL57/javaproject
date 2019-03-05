@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 4 Mar, 2019 9:37:36 PM by Hibernate Tools 4.3.1
+// Generated 5 Mar, 2019 9:19:09 PM by Hibernate Tools 4.3.1
 
 
 
@@ -12,13 +12,19 @@ public class Orders  implements java.io.Serializable {
      private Integer id;
      private OrderMaster orderMaster;
      private ProductMaster productMaster;
+     private int quantity;
 
     public Orders() {
     }
 
-    public Orders(OrderMaster orderMaster, ProductMaster productMaster) {
+	
+    public Orders(int quantity) {
+        this.quantity = quantity;
+    }
+    public Orders(OrderMaster orderMaster, ProductMaster productMaster, int quantity) {
        this.orderMaster = orderMaster;
        this.productMaster = productMaster;
+       this.quantity = quantity;
     }
    
     public Integer getId() {
@@ -41,6 +47,13 @@ public class Orders  implements java.io.Serializable {
     
     public void setProductMaster(ProductMaster productMaster) {
         this.productMaster = productMaster;
+    }
+    public int getQuantity() {
+        return this.quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 
