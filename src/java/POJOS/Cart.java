@@ -1,5 +1,5 @@
 package POJOS;
-// Generated 5 Mar, 2019 9:19:09 PM by Hibernate Tools 4.3.1
+// Generated 6 Mar, 2019 6:57:17 PM by Hibernate Tools 4.3.1
 
 
 
@@ -14,15 +14,21 @@ public class Cart  implements java.io.Serializable {
      private String sessionId;
      private Byte productStatus;
      private Byte sessionStatus;
+     private int quantity;
 
     public Cart() {
     }
 
-    public Cart(ProductMaster productMaster, String sessionId, Byte productStatus, Byte sessionStatus) {
+	
+    public Cart(int quantity) {
+        this.quantity = quantity;
+    }
+    public Cart(ProductMaster productMaster, String sessionId, Byte productStatus, Byte sessionStatus, int quantity) {
        this.productMaster = productMaster;
        this.sessionId = sessionId;
        this.productStatus = productStatus;
        this.sessionStatus = sessionStatus;
+       this.quantity = quantity;
     }
    
     public Integer getId() {
@@ -59,6 +65,13 @@ public class Cart  implements java.io.Serializable {
     
     public void setSessionStatus(Byte sessionStatus) {
         this.sessionStatus = sessionStatus;
+    }
+    public int getQuantity() {
+        return this.quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
 

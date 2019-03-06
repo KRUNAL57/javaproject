@@ -16,9 +16,9 @@ import util.HibernateUtil;
  * @author Admin
  */
 public class UserDAO {
-    static Session session = null;
+    static Session session = HibernateUtil.getSessionFactory().openSession();
     public static void createUser(UserMaster e){
-        session = HibernateUtil.getSessionFactory().openSession();
+        //session = HibernateUtil.getSessionFactory().openSession();
         Transaction t=session.beginTransaction();
         session.save(e);
         t.commit();
@@ -26,7 +26,7 @@ public class UserDAO {
     }
     public static UserMaster loginuser(String username,String password){
         String hql = "from UserMaster where email='"+username+"' and password='"+password+"'";
-        session = HibernateUtil.getSessionFactory().openSession();
+        //session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery(hql);
         List<UserMaster> users = query.list();
         session.close();

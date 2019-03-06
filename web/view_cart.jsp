@@ -27,17 +27,10 @@
                                             int z = 0;
                                             for(z=0;z<lstCart.size();z++){
                                                 Cart c =  lstCart.get(z);
-                                                
                                                 out.print("<tr>");
                                                 out.print("<td><img src=''></td>");
                                                 out.print("<td>"+c.getProductMaster().getProductName()+"</td>");
-                                                out.print("<td>");
-                                                out.print("<select name='quantity'>");
-                                                for(int i=1;i<=10;i++){
-                                                out.print("<option>"+i+"</option>");
-                                                }
-                                                out.print("</select>");
-                                                out.print("</td>");
+                                                out.print("<td>"+c.getQuantity()+"</td>");
                                                 out.print("<td>"+c.getProductMaster().getPrice()+"</td>");
                                                 out.print("<td>"+"Delete"+"</td>");
                                                 out.print("</tr>"); 

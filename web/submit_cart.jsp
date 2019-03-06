@@ -4,6 +4,7 @@
     Author     : krunal
 --%>
 
+<%@page import="java.util.List"%>
 <%@page import="DAO.CartDAO"%>
 <%@page import="POJOS.ProductMaster"%>
 <%@page import="POJOS.Cart"%>
@@ -12,6 +13,16 @@
     String id = request.getParameter("id");
     ProductMaster m = new ProductMaster();
     m.setProductId(Integer.parseInt(id));
-    Cart c= new Cart(m,session.getId().toString(),Byte.parseByte("1"),Byte.parseByte("1"));
-    CartDAO.createCart(c);
+    Cart c = CartDAO.fetchProduct(session.getId(), id);
+    Cart d = null;
+    if(c!=null){
+        int j = c.getQuantity();
+         c.setQuantity(++j);
+         d = c;
+    }else{
+        
+        d= new Cart(m,session.getId().toString(),Byte.parseByte("1"),Byte.parseByte("1"),1);
+    }
+    
+    CartDAO.createCart(d);
 %>
