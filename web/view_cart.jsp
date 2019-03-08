@@ -10,6 +10,7 @@
 <%@page import="POJOS.Cart"%>
 <%@page import="DAO.CartDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isThreadSafe="false" %>
 <%@include  file="header.jsp" %>
 		<!-- SECTION -->
 		<div class="section">
@@ -24,17 +25,17 @@
                                             out.print("</tr>");
                                         }else{
                                             List<Cart> lstCart = CartDAO.fetchCartItems(session.getId());
-                                            for(int z=0;z<lstCart.size();z++){
-                                                Cart c =  lstCart.get(z);
+                                            for(Cart c: lstCart){
+                                                //Cart c =  lstCart.get(z);
                                                 ProductMaster m = c.getProductMaster();
                                                 //out.print(m);
-                                                out.print("<tr>");
-                                                out.print("<td><img src=''></td>");
-                                                out.print("<td>"+m.getProductName()+"</td>");
-                                                out.print("<td>"+c.getQuantity()+"</td>");
-                                                out.print("<td>"+m.getPrice()+"</td>");
-                                                out.print("<td><a class='delete'><i class='fa fa-trash' style='font-size:20px;'></i></a></td>");
-                                                out.print("</tr>"); 
+                                                out.print("<tr>"
+                                                +"<td><img src=''></td>"
+                                                +"<td>"+m.getProductName()+"</td>"
+                                                        +"<td>"+c.getQuantity()+"</td>"
+                                                        +"<td>"+m.getPrice()+"</td>"
+                                                        +"<td><a class='delete'><i class='fa fa-trash' style='font-size:20px;'></i></a></td>"
+                                                                +"</tr>"); 
                                             }
                                             
                                             

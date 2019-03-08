@@ -1,3 +1,4 @@
+<%@page import="POJOS.ProductMaster"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="DAO.CartDAO"%>
 <%@page import="java.util.List"%>
@@ -47,9 +48,10 @@
                                                             <%
                                                             List<Cart> lstCart = CartDAO.fetchCartItems(session.getId());
                                                             float sum=0;
+                                                            //out.print(lstCart.get(0).getId());
                                                             
                                                             for(int z=0;z<lstCart.size();z++){
-                                                                Cart c = lstCart.get(z);    
+                                                                Cart c = lstCart.get(z);
                                                                 out.print("<div class='order-col'>");
 								out.print("<div>"+c.getQuantity()+"x "+c.getProductMaster().getProductName()+"</div>");
 								out.print("<div>"+c.getQuantity()*c.getProductMaster().getPrice()+"</div>");
