@@ -4,6 +4,7 @@
     Author     : krunal
 --%>
 
+<%@page import="POJOS.ProductMaster"%>
 <%@page import="java.util.List"%>
 <%@page import="POJOS.Cart"%>
 <%@page import="POJOS.Cart"%>
@@ -14,25 +15,25 @@
 		<div class="section">
 			<!-- container -->
 			<div class="container">
-                            <form action="checkout.jsp">
+                            <form action="checkout.jsp" method="post">
 				<table class="table table-bordered table-hover table-responsive">
                                     <%
-                                        
                                         if(null==session.getAttribute("userObject")){
                                             out.print("<tr>");
                                             out.print("<td>Please Login First</td>");
                                             out.print("</tr>");
                                         }else{
                                             List<Cart> lstCart = CartDAO.fetchCartItems(session.getId());
-                                            int z = 0;
-                                            for(z=0;z<lstCart.size();z++){
+                                            for(int z=0;z<lstCart.size();z++){
                                                 Cart c =  lstCart.get(z);
+                                                ProductMaster m = c.getProductMaster();
+                                                //out.print(m);
                                                 out.print("<tr>");
                                                 out.print("<td><img src=''></td>");
-                                                out.print("<td>"+c.getProductMaster().getProductName()+"</td>");
+                                                out.print("<td>"+m.getProductName()+"</td>");
                                                 out.print("<td>"+c.getQuantity()+"</td>");
-                                                out.print("<td>"+c.getProductMaster().getPrice()+"</td>");
-                                                out.print("<td>"+"Delete"+"</td>");
+                                                out.print("<td>"+m.getPrice()+"</td>");
+                                                out.print("<td><a class='delete'><i class='fa fa-trash' style='font-size:20px;'></i></a></td>");
                                                 out.print("</tr>"); 
                                             }
                                             

@@ -46,20 +46,23 @@
 							<div class="order-products">
                                                             <%
                                                             List<Cart> lstCart = CartDAO.fetchCartItems(session.getId());
-                                                            int z = 0;
-                                                            for(z=0;z<lstCart.size();z++){
-                                                                Cart c =  lstCart.get(z);    
+                                                            float sum=0;
+                                                            
+                                                            for(int z=0;z<lstCart.size();z++){
+                                                                Cart c = lstCart.get(z);    
                                                                 out.print("<div class='order-col'>");
 								out.print("<div>"+c.getQuantity()+"x "+c.getProductMaster().getProductName()+"</div>");
-								out.print("<div>"+c.getProductMaster().getPrice()+"</div>");
+								out.print("<div>"+c.getQuantity()*c.getProductMaster().getPrice()+"</div>");
 								out.print("</div>");
+                                                                sum = sum + (c.getQuantity()*c.getProductMaster().getPrice());
                                                             }
+                                                            
                                                             %>
 								
 								
 							</div>
 							<div class="order-col">
-								<div>Shiping</div>
+								<div>Shipping</div>
 								<div><strong>FREE</strong></div>
 							</div>
 							<div class="order-col">
@@ -67,7 +70,8 @@
 								<div>
                                                                     <strong class="order-total">
                                                                         <%
-                                                                            out.print(CartDAO.generateTotal(session.getId()).get(0));
+                                                                            out.print(sum);
+                                                                            //out.print(CartDAO.generateTotal(session.getId()).get(0));
                                                                         %>
                                                                     </strong>
                                                                 </div>
@@ -85,14 +89,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="input-checkbox">
-							<input type="checkbox" id="terms">
-							<label for="terms">
-								<span></span>
-								I've read and accept the <a href="#">terms & conditions</a>
-							</label>
-						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+						
+                                                <%
+                                                    out.print("<form action='submit_order.jsp' method='post'>");
+                                                    out.print("<input type='hidden' name='amount' value='"+sum+"'>");
+                                                    out.print("<input type='submit' class='primary-btn order-submit' value='Place order'>");
+                                                    out.print("</form>");
+                                                %>
 					</div>
 					<!-- /Order Details -->
 				</div>

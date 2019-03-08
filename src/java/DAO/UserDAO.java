@@ -29,7 +29,6 @@ public class UserDAO {
         //session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery(hql);
         List<UserMaster> users = query.list();
-        session.close();
         UserMaster obj=null;
         if(!users.isEmpty()){
             obj = users.get(0);

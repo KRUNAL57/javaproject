@@ -13,11 +13,12 @@
     String id = request.getParameter("id");
     ProductMaster m = new ProductMaster();
     m.setProductId(Integer.parseInt(id));
-    Cart c = CartDAO.fetchProduct(session.getId(), id);
+    Cart c = CartDAO.fetchProduct(session.getId(), m);
     Cart d = null;
     if(c!=null){
         int j = c.getQuantity();
          c.setQuantity(++j);
+         out.print(j);
          d = c;
     }else{
         
