@@ -41,10 +41,10 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="shoppingsite"/>
-  <table-filter match-name="user_master"/>
-  <table-filter match-name="order_master"/>
-  <table-filter match-name="orders"/>
-  <table-filter match-name="cart"/>
-  <table-filter match-name="product_master"/>
   <table-filter match-name="payment"/>
+  <table-filter match-name="order_master"/>
+  <table-filter match-name="user_master"/>
+  <table-filter match-name="orders"/>
+  <table-filter match-name="product_master"/>
+  <table-filter match-name="cart"/>
 </hibernate-reverse-engineering>

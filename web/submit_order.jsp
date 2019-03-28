@@ -37,6 +37,9 @@
        Orders order = new Orders(orderId,m,lstOrder.get(z).getQuantity());
        OrderDAO.insertOrder(order);
    }
-   CartDAO.removeFromCart(session.getId());
+      for(int z = 0;z<lstOrder.size();z++){
+           CartDAO.removeFromCart(lstOrder.get(z));    
+      }
+   
    response.sendRedirect("index.jsp");
 %>

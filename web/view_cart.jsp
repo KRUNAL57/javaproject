@@ -10,7 +10,7 @@
 <%@page import="POJOS.Cart"%>
 <%@page import="DAO.CartDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page isThreadSafe="false" %>
+<%@page isThreadSafe="true" %>
 <%@include  file="header.jsp" %>
 		<!-- SECTION -->
 		<div class="section">
@@ -19,35 +19,48 @@
                             <form action="checkout.jsp" method="post">
 				<table class="table table-bordered table-hover table-responsive">
                                     <%
+                                        Boolean flag=false;
                                         if(null==session.getAttribute("userObject")){
                                             out.print("<tr>");
                                             out.print("<td>Please Login First</td>");
                                             out.print("</tr>");
+                                            flag=true;
                                         }else{
                                             List<Cart> lstCart = CartDAO.fetchCartItems(session.getId());
-                                            for(Cart c: lstCart){
-                                                //Cart c =  lstCart.get(z);
-                                                ProductMaster m = c.getProductMaster();
-                                                //out.print(m);
-                                                out.print("<tr>"
-                                                +"<td><img src=''></td>"
-                                                +"<td>"+m.getProductName()+"</td>"
-                                                        +"<td>"+c.getQuantity()+"</td>"
-                                                        +"<td>"+m.getPrice()+"</td>"
-                                                        +"<td><a class='delete'><i class='fa fa-trash' style='font-size:20px;'></i></a></td>"
-                                                                +"</tr>"); 
+                                            
+                                            System.out.println("View Cart");
+                                            lstCart = CartDAO.fetchCartItems(session.getId());
+                                            if(lstCart.size()>0){
+                                                for(Cart c: lstCart){
+                                                    //Cart c =  lstCart.get(z);
+                                                    ProductMaster m = c.getProductMaster();
+                                                    
+                                                    System.out.println(m.getProductName());
+                                                    //out.print(m);
+                                                    out.print("<tr>"
+                                                    +"<td><img src=''></td>"
+                                                    +"<td>"+m.getProductName()+"</td>"
+                                                            +"<td>"+c.getQuantity()+"</td>"
+                                                            +"<td>"+m.getPrice()+"</td>"
+                                                            +"<td><a class='delete'><i class='fa fa-trash' style='font-size:20px;'></i></a></td>"
+                                                                    +"</tr>"); 
+                                                }
+                                                out.print("</table>");
+                                                out.print("<input type='submit' class='primary-btn order-submit' value='Checkout'>");
+                                            }else{
+                                                out.print("<h4><center>Oops! No items in Cart.</h4></center>");
+                                                flag=true;
                                             }
                                             
                                             
+                                            
+                                        }
+                                        if(flag){
+                                            out.print("</table>");
                                         }
                                     %>
-                                </table>
-				<!-- /row -->
-                                <%
-                                    if(null!=session.getAttribute("userObject")){
-                                        out.print("<input type='submit' class='primary-btn order-submit' value='Checkout'>");
-                                    }
-                                %>
+ 
+                                
                                 </form>
 			</div>
 			<!-- /container -->

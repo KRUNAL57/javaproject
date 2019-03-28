@@ -49,9 +49,9 @@
 			<div id="top-header">
 				<div class="container">
 					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+						<li><a href="#"><i class="fa fa-phone"></i> +91-9429-00-5777</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> krunalastik7@gmail.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 221B Bakers Street</a></li>
 					</ul>
 					<ul class="header-links pull-right">
                                                 <li><a href="user_order.jsp"><i class="fa fa-book"></i>My Orders</a></li>

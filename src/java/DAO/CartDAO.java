@@ -60,11 +60,7 @@ public class CartDAO {
         List<Object> e = q.list();
         return e;
     }
-    public static void removeFromCart(String sessionId){
-        String hql = "from cart where sessionId='"+sessionId+"'";
-            //session = HibernateUtil.getSessionFactory().openSession();
-            Cart c = new Cart();
-            c.setSessionId(sessionId);
+    public static void removeFromCart(Cart c){ 
             Transaction t=session.beginTransaction();
             session.delete(c);
             t.commit();
